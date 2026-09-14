@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Central de Defesa</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h1>CENTRAL DE<br>DEFESA</h1>
+
+                <p>Monitoramento • Detecção • Proteção</p>
+
+            </div>
+
+            <nav>
+
+                <a href="#" class="menu-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Alertas</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Logs</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <p>
+                    Segurança é<br>
+                    um processo,<br>
+                    não um produto.
+                </p>
+
+                <span>></span>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main">
+
+            <!-- TOPO -->
+            <header class="topbar">
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <strong>SISTEMA ONLINE</strong>
+
+                    <span class="separator">|</span>
+
+                    <span id="dateTime"></span>
+
+                </div>
+
+                <div class="protection">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Protegendo o que importa
+
+                </div>
+
+            </header>
+
+
+            <!-- CARDS -->
+            <section class="cards">
+
+                <div class="card danger">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+
+                        <p>AMEAÇAS DETECTADAS</p>
+
+                        <h2 id="threatCount">0</h2>
+
+                        <span>↑ monitoramento ativo</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-user-lock"></i>
+                    </div>
+
+                    <div>
+
+                        <p>TENTATIVAS DE LOGIN</p>
+
+                        <h2 id="loginCount">0</h2>
+
+                        <span>últimos eventos</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card warning">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+
+                    <div>
+
+                        <p>IPS SUSPEITOS</p>
+
+                        <h2 id="ipCount">0</h2>
+
+                        <span>monitoramento ativo</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card protected">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+
+                        <p>SISTEMA PROTEGIDO</p>
+
+                        <h2>100%</h2>
+
+                        <span>todos os serviços ativos</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- GRID PRINCIPAL -->
+            <section class="dashboard-grid">
+
+
+                <!-- MAPA / ATIVIDADE -->
+                <div class="panel activity">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            <i class="fa-solid fa-bullseye"></i>
+                            MAPA DE ATIVIDADES
+                        </h2>
+
+                        <span class="live">
+                            <span></span>
+                            AO VIVO
+                        </span>
+
+                    </div>
+
+
+                    <div class="map">
+
+                        <div class="map-grid"></div>
+
+                        <div class="world-map">
+
+                            <div class="continent brazil"></div>
+                            <div class="continent usa"></div>
+                            <div class="continent europe"></div>
+                            <div class="continent asia"></div>
+
+                            <div class="attack-point p1"></div>
+                            <div class="attack-point p2"></div>
+                            <div class="attack-point p3"></div>
+                            <div class="attack-point p4"></div>
+
+                        </div>
+
+
+                        <div class="map-legend">
+
+                            <div>
+                                <span class="red"></span>
+                                Ataque detectado
+                            </div>
+
+                            <div>
+                                <span class="yellow"></span>
+                                Tentativa de login
+                            </div>
+
+                            <div>
+                                <span class="green"></span>
+                                Acesso normal
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SIMULAR ATAQUE -->
+                <div class="panel attack-panel">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            <i class="fa-solid fa-bolt"></i>
+                            SIMULAR ATAQUE
+                        </h2>
+
+                    </div>
+
+                    <div class="attack-content">
+
+                        <p>
+                            Clique no botão abaixo para simular
+                            uma nova tentativa de ataque e veja
+                            como o sistema reage em tempo real.
+                        </p>
+
+                        <button id="simulateAttack">
+
+                            <i class="fa-solid fa-play"></i>
+
+                            SIMULAR ATAQUE
+
+                        </button>
+
+                        <div id="attackStatus" class="attack-status">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            Sistema aguardando...
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGS -->
+                <div class="panel logs-panel">
+
+                    <div class="panel-title">
+
+                        <h2>
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                            LOGS EM TEMPO REAL
+
+                        </h2>
+
+                        <button id="clearLogs">
+                            LIMPAR
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>HORÁRIO</th>
+                                    <th>TIPO</th>
+                                    <th>DESCRIÇÃO</th>
+                                    <th>IP / ORIGEM</th>
+                                    <th>STATUS</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="logTable">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ALERTAS -->
+                <div class="panel alerts-panel">
+
+                    <div class="panel-title">
+
+                        <h2>
+
+                            <i class="fa-solid fa-bell"></i>
+
+                            ALERTAS RECENTES
+
+                        </h2>
+
+                        <span>Ver todos →</span>
+
+                    </div>
+
+
+                    <div id="alertsList">
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROTEÇÕES -->
+                <div class="panel protection-panel">
+
+                    <div class="panel-title">
+
+                        <h2>
+
+                            <i class="fa-solid fa-shield"></i>
+
+                            PROTEÇÃO EM CAMADAS
+
+                        </h2>
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Firewall
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            IDS / IPS
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Antivírus
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Monitoramento de Rede
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Análise de Comportamento
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Bloqueio de IPs Maliciosos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- RODAPÉ -->
+
+            <footer>
+
+                <span></span>
+
+                <p>
+                    Cibersegurança: mais que tecnologia,
+                    é sobre pessoas.
+                </p>
+
+                <span></span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
